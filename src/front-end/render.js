@@ -1,8 +1,10 @@
-const { start } = require("../back-end/utilities");
+const { start, test } = window.myApi;
 
 const btn = document.querySelector("button");
 btn.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
-  start();
+  myApi.start();
 });
+
+console.log(test);

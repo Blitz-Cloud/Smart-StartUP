@@ -13,16 +13,19 @@ const createWindow = () => {
     width: 1000,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      // nodeIntegration: true,
+      // contextIsolation: false,
+      // NOTE: The preload path needs to be absolute
+      preload: `${path.dirname(__filename)}/preload.js`,
     },
   });
+  console.log(path.dirname(__filename));
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "index.html"));
+  mainWindow.loadFile(path.join(__dirname, "front-end/index.html"));
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
