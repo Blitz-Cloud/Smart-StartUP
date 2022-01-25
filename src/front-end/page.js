@@ -1,4 +1,4 @@
-const { start } = require("./startup.js");
+const { start } = require("../back-end/utilities");
 
 const btn = document.querySelector("button");
 btn.addEventListener("click", (e) => {
