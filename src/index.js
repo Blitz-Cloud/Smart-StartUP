@@ -19,7 +19,6 @@ const createWindow = () => {
       preload: `${path.dirname(__filename)}/preload.js`,
     },
   });
-  console.log(path.dirname(__filename));
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "front-end/index.html"));
