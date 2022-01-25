@@ -3,7 +3,7 @@ const path = require("node:path");
 
 const start = async function () {
   const ps = process.spawn("powershell.exe", [
-    `${path.dirname(__filename)}/ps.ps1`,
+    `${path.join(__dirname, "ps.ps1")}`,
   ]);
   ps.stdout.on("data", (data) => {
     console.log(data.toString());

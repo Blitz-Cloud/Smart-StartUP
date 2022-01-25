@@ -16,7 +16,7 @@ const createWindow = () => {
       // nodeIntegration: true,
       // contextIsolation: false,
       // NOTE: The preload path needs to be absolute
-      preload: `${path.dirname(__filename)}/preload.js`,
+      preload: `${path.join(__dirname, "preload.js")}`,
     },
   });
 
