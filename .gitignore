@@ -88,4 +88,6 @@ typings/
 # Electron-Forge
 out/
 
+_config
+
  
