@@ -1,9 +1,6 @@
 const process = require("node:child_process");
 const path = require("node:path");
 const fileSys = require("node:fs/promises");
-const { log } = require("node:console");
-const { resolve } = require("node:path");
-const { rejects } = require("node:assert");
 
 // const start = async function () {
 //   const ps = process.spawn("powershell.exe", [
