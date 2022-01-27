@@ -41,8 +41,5 @@ const checkProfile = function () {
     });
   });
 };
-checkProfile().then((data) => {
-  console.log(data);
-});
 
 module.exports = { checkProfile, readFolder };
