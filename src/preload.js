@@ -4,7 +4,5 @@ const path = require("path");
 const { globalAgent } = require("http");
 
 contextBridge.exposeInMainWorld("myApi", {
-  start: start,
-  test: "Hello world",
   isProfile: checkProfile,
 });
