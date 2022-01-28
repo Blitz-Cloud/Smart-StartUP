@@ -18,4 +18,11 @@ const check_Config = function () {
   });
 };
 
+const checkProfile = async function () {
+  return readFolder(path.join(__dirname, "../_config")).then((files) => {
+    const scripts = files.filter((file) => path.extname(file) === ".ps1");
+    return scripts.toString().length;
+  });
+};
+
 module.exports = { checkProfile, readFolder };

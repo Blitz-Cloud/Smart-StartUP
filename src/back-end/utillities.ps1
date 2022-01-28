@@ -1,10 +1,7 @@
-
-
 function checkProfile {
-  cd ../_config
-  ls "*.ps1"
+  Set-Location ./src/_config
+  Get-ChildItem "*.ps1"
 }
-
 function runPreset {
   param (
     $cmdNr
