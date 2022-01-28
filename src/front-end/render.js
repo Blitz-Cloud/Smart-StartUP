@@ -1,17 +1,9 @@
 const { start, test, isProfile, readFolder } = window.myApi;
-
-// const btn = document.querySelector("button");
-// btn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   e.stopPropagation();
-//   myApi.start();
-// });
-
-// console.log(test);
 isProfile()
   .then(() => {
-    console.log("there is the first profile ");
+    console.log("there is a profile ");
+    // this function is gonna call the createProfile() automatically on the start-up
   })
   .catch(() => {
-    console.log("there isnt any profile");
+    console.log("there isn't any profile");
   });
