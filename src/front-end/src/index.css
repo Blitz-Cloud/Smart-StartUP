@@ -62,6 +62,18 @@ footer {
   background-color: var(--footer);
   grid-area: "footer";
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer svg {
+  height: auto;
+  width: 30px;
+  margin-right: 0.4rem;
 }
