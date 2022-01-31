@@ -91,5 +91,4 @@ out/
 _config
 test.js
 test.ps1
-
- 
+.vscode
