@@ -89,5 +89,7 @@ typings/
 out/
 
 _config
+test.js
+test.ps1
 
  
