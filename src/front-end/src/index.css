@@ -57,8 +57,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 33%;
 }
-.card {
+/* .card {
   background-color: var(--card);
   height: 340px;
   width: 250px;
@@ -111,6 +113,54 @@ card svg {
   font-size: 2rem;
 }
 .col1 button {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  font-weight: 400;
+} */
+
+.card {
+  background-color: var(--card);
+  height: 340px;
+  width: 250px;
+  border-radius: 30px;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.25fr 0.75fr;
+  grid-template-areas:
+    "row1"
+    "row2";
+}
+.row1 {
+  margin: 5px 5px 0px 5px;
+  grid-area: "row1";
+  text-align: center;
+  display: grid;
+  grid-template-columns: 0.95fr 0.05fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "div svg";
+}
+.row1 div {
+  grid-area: "div";
+}
+.row1 svg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: "svg";
+}
+.row2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: "row2";
+}
+.card h3 {
+  font-size: 1.5rem;
+}
+.row2 button {
   font-size: 1.5rem;
   border: none;
   background: none;
