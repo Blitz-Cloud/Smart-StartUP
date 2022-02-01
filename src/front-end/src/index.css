@@ -63,6 +63,7 @@ main {
   height: 340px;
   width: 250px;
   border-radius: 30px;
+  margin: 20px;
   display: grid;
   grid-template-columns: 0.9fr 0.1fr;
   grid-template-rows: 1fr;
@@ -81,6 +82,33 @@ card svg {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+}
+.col1 button {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  font-weight: 400;
+}
+.create {
+  background-color: var(--card);
+  height: 340px;
+  width: 250px;
+  border-radius: 30px;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "col1";
+  padding: 20px;
+}
+#create {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.create h3 {
+  font-size: 2rem;
 }
 .col1 button {
   font-size: 1.5rem;
