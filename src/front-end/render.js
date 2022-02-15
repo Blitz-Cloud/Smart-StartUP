@@ -1,6 +1,9 @@
-const { isProfile } = window.myApi;
-isProfile().catch(() => {
-  console.log("there isn't any profile");
-  console.log("Call create Profile ");
-  // this function is gonna call the createProfile() automatically on the start-up
-});
+const { isProfile, isPro } = window.myApi;
+isProfile()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    // Call create profile page
+    console.log("createProfile()");
+  });

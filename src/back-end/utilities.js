@@ -14,22 +14,32 @@ const readFolder = async function (PATH) {
   return data;
 };
 
-const check_Config = function () {
-  return new Promise((resolve, reject) => {
-    readFolder(path.join(__dirname, "../_config")).then((data) => {
-      if (data.length) {
-        resolve();
-      } else {
-        reject();
-      }
-    });
-  });
-};
+// This function needs some changes for checking if there are any complementary files
+// const check_Config = function () {
+//   return new Promise((resolve, reject) => {
+//     readFolder(path.join(__dirname, "../_config")).then((data) => {
+//       if (data.length) {
+//         resolve();
+//       } else {
+//         reject();
+//       }
+//     });
+//   });
+// };
 
 const checkProfile = async function () {
-  return readFolder(path.join(__dirname, "../_config")).then((files) => {
-    const scripts = files.filter((file) => path.extname(file) === ".json");
-    return scripts.toString().length;
+  return new Promise((resolve, reject) => {
+    let data;
+    readFolder(path.join(__dirname, "../_config")).then((files) => {
+      const scripts = files.filter((file) => path.extname(file) === ".json");
+      data = scripts.length;
+      console.log(data);
+    });
+    if (data) {
+      console.log(data);
+      resolve(data);
+    }
+    reject(data);
   });
 };
 
