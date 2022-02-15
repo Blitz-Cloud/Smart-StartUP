@@ -1,6 +1,7 @@
 const process = require("node:child_process");
 const path = require("node:path");
 const fileSys = require("node:fs/promises");
+const { v4: uuidv4 } = require("uuid");
 
 const _config = async function () {
   const data = await fileSys.mkdir(`${path.join(__dirname, "../_config")}`, {
@@ -27,7 +28,7 @@ const check_Config = function () {
 
 const checkProfile = async function () {
   return readFolder(path.join(__dirname, "../_config")).then((files) => {
-    const scripts = files.filter((file) => path.extname(file) === ".ps1");
+    const scripts = files.filter((file) => path.extname(file) === ".json");
     return scripts.toString().length;
   });
 };
@@ -36,7 +37,7 @@ const createProfile = async function (name, pathList) {
   const fileName = uuidv4();
   const routes = [];
   pathList.forEach((path) => {
-    routes.push(`& "${path}"`);
+    routes.push(`& '${path}'`);
   });
   console.log(routes);
   const jsonBody = {
@@ -44,9 +45,15 @@ const createProfile = async function (name, pathList) {
     path: routes,
   };
   fileSys.writeFile(
-    `${path.join(__dirname, "./src/_config")}/${fileName}.json`,
+    `${path.join(__dirname, "../_config")}/${fileName}.json`,
     JSON.stringify(jsonBody),
     { flag: "ax" }
   );
 };
-module.exports = { checkProfile, readFolder, check_Config, _config };
+module.exports = {
+  checkProfile,
+  readFolder,
+  check_Config,
+  _config,
+  createProfile,
+};
