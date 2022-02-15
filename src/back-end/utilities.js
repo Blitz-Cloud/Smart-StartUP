@@ -33,13 +33,12 @@ const checkProfile = async function () {
     readFolder(path.join(__dirname, "../_config")).then((files) => {
       const scripts = files.filter((file) => path.extname(file) === ".json");
       data = scripts.length;
-      console.log(data);
+      if (data) {
+        return resolve(data);
+      } else {
+        reject(data);
+      }
     });
-    if (data) {
-      console.log(data);
-      resolve(data);
-    }
-    reject(data);
   });
 };
 
@@ -60,10 +59,26 @@ const createProfile = async function (name, pathList) {
     { flag: "ax" }
   );
 };
+
+// This func is gonna return an array containing objects with all data for each profile
+const readProfiles = function () {
+  return new Promise(async (resolve, reject) => {
+    const route = path.join(__dirname, "../_config");
+    const files = await fileSys.readdir(route);
+    const contents = [];
+    for (const file of files) {
+      data = JSON.parse(
+        await (await fileSys.readFile(`${route}/${file}`)).toString()
+      );
+      contents.push(data);
+    }
+    return resolve(contents);
+  });
+};
+
 module.exports = {
   checkProfile,
   readFolder,
-  check_Config,
   _config,
   createProfile,
 };
