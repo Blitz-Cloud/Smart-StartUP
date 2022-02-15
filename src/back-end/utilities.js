@@ -40,4 +40,4 @@ const createProfile = async function (name, pathList) {
     { flag: "ax" }
   );
 };
-module.exports = { checkProfile, readFolder };
+module.exports = { checkProfile, readFolder, check_Config };
