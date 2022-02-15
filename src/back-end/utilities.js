@@ -2,6 +2,7 @@ const process = require("node:child_process");
 const path = require("node:path");
 const fileSys = require("node:fs/promises");
 const { v4: uuidv4 } = require("uuid");
+const child_procces = require("node:child_process");
 
 const _config = async function () {
   const data = await fileSys.mkdir(`${path.join(__dirname, "../_config")}`, {
@@ -46,7 +47,7 @@ const createProfile = async function (name, pathList) {
   const fileName = uuidv4();
   const routes = [];
   pathList.forEach((path) => {
-    routes.push(`& '${path}'`);
+    routes.unshift(`& '${path}'`);
   });
   console.log(routes);
   const jsonBody = {
@@ -76,9 +77,19 @@ const readProfiles = function () {
   });
 };
 
+const runProfile = async function (paths) {
+  console.log(paths);
+  paths.forEach((path) => {
+    console.log(path);
+    child_procces.execFile("powershell", [`& '${path}'`]);
+  });
+};
+
 module.exports = {
   checkProfile,
   readFolder,
   _config,
   createProfile,
+  readProfiles,
+  runProfile,
 };

@@ -38,10 +38,11 @@
       </div>
     </header>
     <main>
+      <% for(let profile of profiles){ %>
       <div class="card">
         <div class="row1">
           <div>
-            <h3>ProFileName</h3>
+            <h3><%=profile.name %></h3>
             <h6>profile</h6>
           </div>
           <svg
@@ -59,9 +60,11 @@
         </div>
         <div class="row2">
           <!-- the button or the svg -->
-          <button>Start</button>
+          <button class="start-btn" id="<%= profile.name %> ">Start</button>
         </div>
       </div>
+      <% } %>
+      <!-- Create profile card  -->
       <div class="card">
         <div class="row1">
           <div>

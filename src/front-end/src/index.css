@@ -186,3 +186,8 @@ footer svg {
   width: 30px;
   margin-right: 0.4rem;
 }
+
+footer,
+header {
+  padding: 10px;
+}

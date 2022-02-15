@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fileSys = require("node:fs/promises");
-const utilities = require("./back-end/utilities");
+const { _config, readProfiles } = require("./back-end/utilities");
 const ejs = require("ejs-electron");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -9,9 +9,8 @@ if (require("electron-squirrel-startup")) {
   // eslint-disable-line global-require
   app.quit();
 }
-ejs.options("debug", false);
 
-const createWindow = () => {
+const createWindow = async () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1000,
@@ -23,7 +22,13 @@ const createWindow = () => {
       preload: `${path.join(__dirname, "preload.js")}`,
     },
   });
-  utilities._config();
+  _config();
+  let profiles;
+  await readProfiles().then((data) => {
+    profiles = data;
+  });
+
+  ejs.data("profiles", profiles);
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "front-end/index.ejs"));
@@ -31,6 +36,9 @@ const createWindow = () => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
   mainWindow.removeMenu();
+  const reloadPage = function () {
+    mainWindow.reload;
+  };
 };
 
 // This method will be called when Electron has finished
