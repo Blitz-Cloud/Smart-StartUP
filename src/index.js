@@ -13,11 +13,10 @@ if (require("electron-squirrel-startup")) {
 const createWindow = async () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 600,
+    width: 1440,
+    height: 810,
     webPreferences: {
-      // nodeIntegration: true,
-      // contextIsolation: false,
+      nodeIntegration: false,
       // NOTE: The preload path needs to be absolute
       preload: `${path.join(__dirname, "preload.js")}`,
     },
