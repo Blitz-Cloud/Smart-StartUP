@@ -1,4 +1,5 @@
 const { contextBridge } = require("electron");
+
 const {
   checkProfile,
   readFolder,
@@ -7,7 +8,6 @@ const {
   readProfiles,
   runProfile,
 } = require("./back-end/utilities");
-const path = require("path");
 
 contextBridge.exposeInMainWorld("myApi", {
   isProfile: checkProfile,

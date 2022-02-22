@@ -4,9 +4,6 @@ const fileSys = require("node:fs/promises");
 const { _config, readProfiles } = require("./back-end/utilities");
 const ejs = require("ejs-electron");
 
-require("electron-reload")(__dirname + "/front-end/index.html", {
-  electron: path.join(__dirname, "../node_modules/.bin/electron"),
-});
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
   // eslint-disable-line global-require
@@ -24,6 +21,7 @@ const createWindow = async () => {
       preload: `${path.join(__dirname, "preload.js")}`,
     },
   });
+
   _config();
   let profiles;
   await readProfiles().then((data) => {
@@ -38,9 +36,6 @@ const createWindow = async () => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
   mainWindow.removeMenu();
-  const reloadPage = function () {
-    mainWindow.reload;
-  };
 };
 
 // This method will be called when Electron has finished
