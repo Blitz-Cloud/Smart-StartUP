@@ -13,6 +13,7 @@
   --header: rgba(255, 255, 255, 70%);
   --card: rgba(233, 243, 249, 100%);
   --footer: rgba(4, 114, 160, 100%);
+  --createWind: rgba(218, 243, 251, 100%);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -20,6 +21,7 @@ html {
   height: 100%;
 }
 body {
+  position: relative;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -132,4 +134,98 @@ footer svg {
 footer,
 header {
   padding: 10px;
+}
+
+.createWind {
+  background-color: var(--createWind);
+  position: absolute;
+  height: 650px;
+  width: 1300px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2.5rem;
+  display: none;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.24fr 1fr 0.24fr;
+  grid-template-areas:
+    "head"
+    "main"
+    "foot";
+  overflow: hidden;
+  padding: 10px;
+  font-size: 3fr;
+}
+
+.head {
+  padding: 10px;
+  grid-area: "head";
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.9fr;
+  grid-template-areas:
+    "x"
+    "title";
+}
+.head h3 {
+  font-size: 1.7rem;
+}
+.head div {
+  grid-area: "title";
+  text-align: center;
+}
+#logo {
+  grid-area: "x";
+  text-align: right;
+}
+
+.main {
+  grid-area: "main";
+  display: grid;
+  grid-template-columns: 0.2fr 0.5fr 0.3fr;
+  grid-template-rows: 1fr 0.1fr;
+  grid-template-areas:
+    "labels inputs add "
+    ". create .";
+}
+.createWind .label {
+  grid-area: "labels";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createWind .input {
+  grid-area: "inputs";
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.createWind .add {
+  grid-area: "labels";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createWind form {
+  height: inherit;
+}
+.createWind .create {
+  text-align: center;
+}
+label {
+  font-size: 1.5rem;
+  margin: 10px;
+}
+input {
+  margin: 10px;
+}
+
+.foot {
+  grid-area: "foot";
+  background: blue;
 }
