@@ -6,6 +6,7 @@ const submit_btn = document.getElementById("submit");
 const inputs = document.querySelectorAll("input");
 const createWind = document.querySelector(".createWind");
 const closeWind = document.querySelector("#close");
+const del_Btns = document.querySelectorAll("#delete");
 
 isProfile()
   .then((data) => {
@@ -45,4 +46,10 @@ readProfiles().then((data) => {
       runProfile(profiles[i].path);
     });
   }
+});
+del_Btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    console.log("delete");
+    // Call delteProfile function
+  });
 });
