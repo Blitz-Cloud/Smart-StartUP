@@ -68,7 +68,7 @@ const readProfiles = function () {
     const files = await fileSys.readdir(route);
     const contents = [];
     for (let file of files) {
-      data = JSON.parse(await await fileSys.readFile(`${route}/${file}`));
+      let data = JSON.parse(await fileSys.readFile(`${route}/${file}`));
       contents.push(data);
     }
     return resolve(contents);
