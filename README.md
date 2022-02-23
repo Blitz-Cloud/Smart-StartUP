@@ -1,5 +1,39 @@
 # Smart-StartUP
-This will be an  app that will  start when the system boots up ,witch will provide 3 or more custom profile , where witch une will start the apps that you set
 
-# Important 
-I am not sure what framework to use, the performance is import for this use case an i am thincking to migrate the project over Flutter
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+Easy to use app, that its gonna make your life easier, by providing profiles preloaded by you with apps witch are gonna be opened.
+
+![Logo](https://github.com/BLITzStudio/Smart-StartUP/blob/master/webSite/src/fotos/baner.jpg?raw=true)
+
+## Run locally for development
+
+Clone the project
+
+```bash
+  git clone https://github.com/BLITzStudio/Smart-StartUP.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm i
+```
+
+Start the app
+
+```bash
+  npm start
+```
+
+## Future updates
+
+- More options menus are coming
+
+- Add more functionality for future customization
