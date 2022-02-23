@@ -74,6 +74,8 @@ const readProfiles = function () {
       let data = JSON.parse(
         await (await fileSys.readFile(`${route}/${file}`)).toString()
       );
+      const locationPath = `${route}/${file}`;
+      data.location = locationPath;
       contents.push(data);
     }
     return resolve(contents);
@@ -88,6 +90,10 @@ const runProfile = async function (paths) {
     });
   });
 };
+const deleteProfile = function (path) {
+  console.log(path);
+  fileSys.rm(path);
+};
 
 module.exports = {
   checkProfile,
@@ -96,4 +102,5 @@ module.exports = {
   createProfile,
   readProfiles,
   runProfile,
+  deleteProfile,
 };

@@ -7,6 +7,7 @@ const {
   createProfile,
   readProfiles,
   runProfile,
+  deleteProfile,
 } = require("./back-end/utilities");
 
 contextBridge.exposeInMainWorld("myApi", {
@@ -17,4 +18,5 @@ contextBridge.exposeInMainWorld("myApi", {
   createProfile: createProfile,
   readProfiles: readProfiles,
   runProfile: runProfile,
+  deleteProfile: deleteProfile,
 });

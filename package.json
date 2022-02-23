@@ -1,8 +1,8 @@
 {
   "name": "smart-startup",
   "productName": "smart-startup",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "0.0.1",
+  "description": "Easy to use app, that its gonna make your life easier, by providing profiles preloaded by you with apps witch are gonna be opened.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",

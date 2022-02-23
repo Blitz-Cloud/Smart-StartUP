@@ -157,7 +157,7 @@ header {
     "head"
     "main"
     "foot";
-  overflow: hidden;
+
   padding: 10px;
   font-size: 3fr;
 }
@@ -204,6 +204,9 @@ header {
   margin: 5px;
   display: flex;
   flex-direction: column;
+  height: 440px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .createWind .add {
   grid-area: "labels";
