@@ -1,4 +1,5 @@
-const { isProfile, readProfiles, runProfile, createProfile } = window.myApi;
+const { isProfile, readProfiles, runProfile, createProfile, ipc } =
+  window.myApi;
 const btns = document.querySelectorAll(".start-btn");
 const create_btn = document.getElementById("create");
 const submit_btn = document.getElementById("submit");
@@ -20,17 +21,6 @@ create_btn.addEventListener("click", (e) => {
   createWind.style.display = "grid";
 });
 
-readProfiles().then((data) => {
-  let profiles = data;
-  for (let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", (e) => {
-      e.preventDefault();
-      e.preventDefault();
-      runProfile(profiles[i].path);
-    });
-  }
-});
-
 closeWind.addEventListener("click", () => {
   closeWind.parentNode.parentElement.parentElement.style.display = "none";
 });
@@ -41,6 +31,18 @@ submit_btn.addEventListener("click", (e) => {
   for (i = 1; i < inputs.length; i++) {
     paths.push(inputs[i].value);
   }
+  console.log(paths);
   createProfile(name, paths);
   createWind.style.display = "none";
+  ipc.send("reload");
+});
+readProfiles().then((data) => {
+  let profiles = data;
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", (e) => {
+      e.preventDefault();
+      e.preventDefault();
+      runProfile(profiles[i].path);
+    });
+  }
 });

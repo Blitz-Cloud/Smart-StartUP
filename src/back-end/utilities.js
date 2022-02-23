@@ -47,7 +47,7 @@ const createProfile = async function (name, pathList) {
   const fileName = uuidv4();
   const routes = [];
   pathList.forEach((path) => {
-    routes.unshift(`& '${path}'`);
+    routes.unshift(`${path}`);
   });
   console.log(routes);
   const jsonBody = {
@@ -67,10 +67,8 @@ const readProfiles = function () {
     const route = path.join(__dirname, "../_config");
     const files = await fileSys.readdir(route);
     const contents = [];
-    for (const file of files) {
-      data = JSON.parse(
-        await (await fileSys.readFile(`${route}/${file}`)).toString()
-      );
+    for (let file of files) {
+      data = JSON.parse(await await fileSys.readFile(`${route}/${file}`));
       contents.push(data);
     }
     return resolve(contents);
@@ -78,10 +76,11 @@ const readProfiles = function () {
 };
 
 const runProfile = async function (paths) {
-  console.log(paths);
   paths.forEach((path) => {
-    console.log(path);
-    child_procces.execFile("powershell", [`& '${path}'`]);
+    child_procces.execFile("powershell", [`& '${path}'`], (err, data) => {
+      console.log(err);
+      console.log(data);
+    });
   });
 };
 

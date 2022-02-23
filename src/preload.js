@@ -1,4 +1,4 @@
-const { contextBridge } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
 const {
   checkProfile,
@@ -10,6 +10,7 @@ const {
 } = require("./back-end/utilities");
 
 contextBridge.exposeInMainWorld("myApi", {
+  ipc: ipcRenderer,
   isProfile: checkProfile,
   readFolder: readFolder,
   _config: _config,

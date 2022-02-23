@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcRenderer, ipcMain } = require("electron");
 const path = require("path");
 const fileSys = require("node:fs/promises");
 const { _config, readProfiles } = require("./back-end/utilities");
@@ -36,6 +36,12 @@ const createWindow = async () => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
   mainWindow.removeMenu();
+  ipcMain.on("reload", async () => {
+    await readProfiles().then((data) => {
+      ejs.data("profiles", data);
+      mainWindow.webContents.reloadIgnoringCache();
+    });
+  });
 };
 
 // This method will be called when Electron has finished
