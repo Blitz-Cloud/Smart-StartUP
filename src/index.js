@@ -20,7 +20,7 @@ const createWindow = async () => {
       // NOTE: The preload path needs to be absolute
       preload: `${path.join(__dirname, "preload.js")}`,
     },
-    icon: __dirname + "./front-end/src/.icons/Frame.jpg",
+    icon: path.join(__dirname, "./front-end/src/.icons/Frame.jpg"),
   });
 
   _config();
