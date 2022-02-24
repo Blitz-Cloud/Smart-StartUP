@@ -56,9 +56,6 @@
     "ejs-electron": "^2.1.1",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-squirrel-startup": "^1.0.0",
-    "fs": "0.0.1-security",
-    "fs-extra": "^10.0.1",
-    "rpmbuild": "0.0.23",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
