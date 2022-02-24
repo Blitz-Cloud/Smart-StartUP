@@ -4,7 +4,7 @@
 
 Easy to use app, that its gonna make your life easier, by providing profiles preloaded by you with apps witch are gonna be opened.
 
-![Logo](https://github.com/BLITzStudio/Smart-StartUP/blob/master/webSite/src/fotos/baner.jpg?raw=true)
+![Logo](https://github.com/BLITzStudio/Smart-StartUP/blob/master/src/front-end/src/.icons/baner.jpg?raw=true)
 
 ## Run locally for development
 
