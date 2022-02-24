@@ -92,3 +92,4 @@ _config
 test.js
 test.ps1
 .vscode
+dev.env
