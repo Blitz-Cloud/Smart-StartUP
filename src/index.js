@@ -4,12 +4,6 @@ const fileSys = require("node:fs/promises");
 const { _config, readProfiles } = require("./back-end/utilities");
 const ejs = require("ejs-electron");
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require("electron-squirrel-startup")) {
-  // eslint-disable-line global-require
-  app.quit();
-}
-
 const createWindow = async () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -18,9 +12,9 @@ const createWindow = async () => {
     webPreferences: {
       nodeIntegration: false,
       // NOTE: The preload path needs to be absolute
-      preload: `${path.join(__dirname, "preload.js")}`,
+      preload: `${path.join(__dirname, "./preload.js")}`,
     },
-    icon: path.join(__dirname, "./front-end/src/.icons/Frame.jpg"),
+    icon: path.join(__dirname, "./front-end/src/.icons/Frame.ico"),
   });
 
   _config();
@@ -32,7 +26,7 @@ const createWindow = async () => {
   ejs.data("profiles", profiles);
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "front-end/index.ejs"));
+  mainWindow.loadFile(path.join(__dirname, "./front-end/index.ejs"));
 
   // Open the DevTools.
 

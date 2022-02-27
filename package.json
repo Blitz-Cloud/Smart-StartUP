@@ -1,8 +1,8 @@
 {
   "name": "Smart-StartUP",
   "productName": "Smart-StartUP",
-  "version": "0.0.1",
-  "description": "Easy to use app, that its gonna make your life easier, by providing profiles preloaded by you with apps witch are gonna be opened.",
+  "version": "1.0.0",
+  "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -13,25 +13,22 @@
   },
   "keywords": [],
   "author": {
-    "name": "BLITzStudio",
-    "email": "81566145+BLITzStudio@users.noreply.github.com"
+    "name": "Blitz_Cloud",
+    "email": "ionutp626@gmail.com"
   },
   "license": "MIT",
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "C:/Users/40761/Desktop/Smart-StartUP/src/front-end/src/.icons/Frame.jpg",
         "ignore": [
-          "dev.env"
+          "/src/_config",
+          "/src/dev.env"
         ]
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "smart_startup",
-            "icon": "C:/Users/40761/Desktop/Smart-StartUP/src/front-end/src/.icons/Frame.jpg"
-          }
+          "config": {}
         },
         {
           "name": "@electron-forge/maker-zip",
@@ -51,19 +48,17 @@
     }
   },
   "dependencies": {
-    "@electron-forge/maker-wix": "^6.0.0-beta.63",
-    "dotenv": "^16.0.0",
     "ejs-electron": "^2.1.1",
-    "electron-reload": "^2.0.0-alpha.1",
     "electron-squirrel-startup": "^1.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@electron-forge/maker-wix": "^6.0.0-beta.63",
     "@electron-forge/cli": "^6.0.0-beta.63",
     "@electron-forge/maker-deb": "^6.0.0-beta.63",
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
-    "electron": "16.0.7"
+    "electron": "17.1.0"
   }
 }
