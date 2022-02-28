@@ -4,6 +4,11 @@ const fileSys = require("node:fs/promises");
 const { _config, readProfiles } = require("./back-end/utilities");
 const ejs = require("ejs-electron");
 
+if (require("electron-squirrel-startup")) {
+  // eslint-disable-line global-require
+  app.quit();
+}
+
 const createWindow = async () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
