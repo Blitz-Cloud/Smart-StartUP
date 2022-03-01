@@ -24,7 +24,7 @@
           "/src/_config",
           "/src/dev.env"
         ],
-        "icon": "./src/front-end/src/icons/logo.ico"
+        "icon": "src/front-end/src/icons/logo.jpg"
       },
       "makers": [
         {
