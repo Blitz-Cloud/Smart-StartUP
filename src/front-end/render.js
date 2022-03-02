@@ -9,12 +9,11 @@ const {
 const start_btns = document.querySelectorAll(".start-btn");
 const create_btn = document.getElementById("create");
 const submit_btn = document.getElementById("submit");
-const inputs = document.querySelectorAll("input");
 const createWind = document.querySelector(".createWind");
 const closeWind = document.querySelector("#close");
 const del_Btns = document.querySelectorAll("#delete");
 const add_Path = document.querySelector("#add_Path");
-const inputFields = document.querySelector(".inputField");
+var inputFields = document.querySelector(".inputField");
 
 isProfile()
   .then((data) => {
@@ -36,6 +35,7 @@ add_Path.addEventListener("click", () => {
   input.name = "path";
   input.id = "input";
   inputFields.appendChild(input);
+  inputFields = document.querySelector(".inputField");
 });
 
 closeWind.addEventListener("click", () => {
@@ -43,6 +43,7 @@ closeWind.addEventListener("click", () => {
 });
 
 submit_btn.addEventListener("click", (e) => {
+  const inputs = document.querySelectorAll("input");
   const name = inputs[0].value;
   const paths = [];
   for (i = 1; i < inputs.length; i++) {
